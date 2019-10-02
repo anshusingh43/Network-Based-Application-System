@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>feedback</title>
+  <link rel="stylesheet" type="text/css" href="../assets/stylesheet/index.css">
+</head>
+<body>
+
+  <% include header.ejs %>
+  <% include user-navigation.ejs %>
+  <% include site-navigation.ejs %>
+
+  <article class="des">
+       <table>
+         <tr>
+           <th  rowspan="2">
+             <img src="<%= data.ImageURL%>" alt="dish" width="180" height="130">
+           </th>
+           <td><br><h4><%= data.Name%></h4></td>
+         </tr>
+         <tr>
+           <td><br><b><%=data.Catalog_Category%></b></td>
+         </tr>
+       </table>
+     <br><br><br><p><b>Rate</b>
+     <select >
+       <option value="one">1</option>
+       <option value="two">2</option>
+       <option value="three">3</option>
+       <option value="four">4</option>
+       <option value="five">5</option>
+     </select>
+     <br><br><br>
+     <!-- <br><br><br><br><br> -->
+     <form action="/MyItems">
+     <input type="submit" value="Save" class="button button1">
+     </form>
+   <form action="/categories">
+   <input type="submit" value="Back" class="button button1">
+ </form>
+<form action="/MyItems">
+<input type="submit" value="Confirm Rating" class="button button1">
+</form>
+</article>
+<% include footer.ejs %>
+</body>
+</html>
