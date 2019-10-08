@@ -1,0 +1,188 @@
+@charset "UTF-8";
+
+article,footer,header,nav,section{
+    display:block;
+}
+
+html,body,h4,ul,li,a,p,article,aside,footer,header,main,nav,section{
+  padding: 0;
+  margin: 0;
+}
+img{
+  border-radius: 8px;
+}
+.banner{
+  /* background-color: #11233b; */
+  /* background-image: linear-gradient(to right, rgba(255, 0, 0, 0),rgba(255, 0, 0, 1)); */
+    background-image: linear-gradient(to right, rgba(218, 212, 240, 0),rgba(218, 212, 240, 1),rgba(218, 212, 240, 0));
+
+  color: white;
+  padding: 20px 10px;
+  text-align: center;
+}
+
+body{
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f0f0f0;
+  font-family:courier;
+  font-size: 15px;
+}
+
+.usernav{
+  background-color: #D5DADA;
+  text-align: center;
+  margin-top: 1px;
+  padding: 10px 10px;
+  text-decoration: none;
+}
+.usernav ul li{
+  padding:10px;
+  text-align: center;
+  display: inline;
+}
+a:link {
+  color: black;
+}
+
+a{
+  text-decoration: none;
+}
+
+a:hover{
+  color: blue;
+}
+/*
+.side{
+  float: left;
+  background-color: #D5DADA;
+  margin-top: 27px;
+  width: 19.7%;
+  position: absolute;
+  top : 70px;
+  bottom: 0;
+} */
+
+.side{
+  float: left;
+  background-color: #D5DADA;
+  margin-top: 27px;
+  width: 19.7%;
+  /* position: absolute; */
+  position: fixed;
+  top : 49px;
+  bottom: 0;
+}
+
+.des{
+  margin-left: 250px;
+  padding:20px;
+  /* background-color: #D5DADA; */
+  margin-top: 2px;
+  width:77%;
+  height:100%;
+  float: right;
+
+}
+
+/* .des ul{
+  padding: 10px;
+  margin-left: 50px;
+  display: block;
+  position: relative;
+  list-style-type: none;
+}
+
+.des p{
+  padding: 5px;
+} */
+
+table{
+  width: 100px;
+  /* border: 1px solid black; */
+  border-collapse: collapse;
+  margin-top:0px;
+  float:left;
+}
+
+
+footer{
+  background-image: linear-gradient(to right, rgba(218, 212, 240, 0),rgba(218, 212, 240, 1),rgba(218, 212, 240, 0));
+  /* padding-left: 4px;
+  text-align: center;
+  color: white;
+  margin-left: 2%;
+  padding-left: 1px; */
+  bottom: o;
+  position: fixed;
+  width: 100%;
+  /* margin-top:31.7%; */
+ margin: 0 auto;
+ bottom:0;
+ left: 0;
+ right: 0;
+}
+
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+  padding: 1px 1px 1px 1px;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 2px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+}
+
+.button1:hover {
+background-color: #e7e7e7;
+box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/* next 4 css is for spacing in the buttons */
+nav {
+text-align: center;
+margin: 20px 0 0 ;
+padding: 10px 0;
+}
+
+nav ul{
+  list-style: none;
+  margin: 0 2px;
+  padding: 0;
+}
+
+nav li {
+   padding: 5px 5px;
+   /* padding-bottom: 10px; */
+   padding-top: 30px;
+}
+
+nav a {
+  font-weight: normal;
+  padding: 10px 5px;
+  font-size: .95em;
+}
+
+/* end of the styling for the spacing in the vertical nav bar*/
+
+td{
+  padding-left: 15px;
+  padding-right: 20px;
+}
