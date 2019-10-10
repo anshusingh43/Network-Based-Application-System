@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MyItems</title>
+  <link rel="stylesheet" type="text/css" href="../assets/stylesheet/MyItems.css">
+</head>
+<body>
+<% include header.ejs %>
+<% include user-navigation.ejs %>
+<% include site-navigation.ejs %>
+<div style="padding-left: 20%; padding-top: 2%">
+  <% if(MyItemList === undefined) { %>Please <b><a href = "/SignIn">Sign In </a></b>to see your recipes!<% } else { %></div>
+<article class="des">
+  <h4 style="text-align:center;"><b>SAVED ITEMS</b></h4>
+  <table>
+    <tr>
+      <th>Recipe</th>
+      <th>Categories</th>
+      <th>My Rating</th>
+      <th>Made It</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+      <% for(let i=0; i < MyItemList.length; i++) {%>
+        <tr>
+          <td><%= MyItemList[i].item %></td>
+          <td><%= MyItemList[i].category %></td>
+          <td><%= MyItemList[i].rating %></td>
+          <td><% if(MyItemList[i].madeIt === 'Yes'){%>
+              <input type="checkbox" checked name="made it 1" value="name">
+            <% }else {%>
+              <input type="checkbox" name="made it 1" value="name">
+            <% } %>
+          </td>
+          <td><a href="/feedback?action=update&item_code=<%- MyItemList[i].item_code %>"><button >Update</button></a></td>
+          <td><a href="/myItems?action=delete&item_code=<%- MyItemList[i].item_code %>"><button>Delete</button></a></td>
+          </td>
+        </tr>
+      <% } %>
+
+
+    <!-- for loop -->
+    <!--<tr>-->
+    <!--<th>Paneer Veg Sauted</th>-->
+    <!--<th>Breakfast</th>-->
+    <!--<th><img src="../assets/images/fiveRating.png" alt="ratings" width="90" height="25"></th>-->
+    <!--<th><input type="checkbox" name="made it 1" value="paneer chilly"></th>-->
+    <!--<th>-->
+    <!--<input type="button" onclick="location.href='/feedback?item_code=B1';" value="update"/>-->
+    <!--</th>-->
+    <!--<th>-->
+    <!--<form action="/MyItems">-->
+    <!--<input type="submit" value="Delete" class="button bup">-->
+    <!--</form>-->
+    <!--</th>-->
+    <!--</tr>-->
+    <!--<tr>-->
+    <!--<th>Chicken tikka with steamed Veggies</th>-->
+    <!--<th>Dinner</th>-->
+    <!--<th><img src="../assets/images/threeRating.png" alt="ratings" width="90" height="25"></th>-->
+    <!--<th><input type="checkbox" name="made it 2" value="ice cream"></th>-->
+    <!--<th>-->
+    <!--<input type="button" onclick="location.href='/feedback?item_code=D5';" value="update"/>-->
+    <!--</th>-->
+    <!--<th>-->
+    <!--<form action="/MyItems">-->
+    <!--<input type="submit" value="Delete" class="button bup">-->
+    <!--</form>-->
+    <!--</th>-->
+    <!--</tr>-->
+    <!--<tr>-->
+    <!--<th></th>-->
+    <!--<th></th>-->
+    <!--<th></th>-->
+    <!--<th></th>-->
+    <!--<th></th>-->
+    <!--<th></th>-->
+    <!--</tr>-->
+    <!--<tr>-->
+    <!--<th></th>-->
+    <!--<th></th>-->
+    <!--<th></th>-->
+    <!--<th></th>-->
+    <!--<th></th>-->
+    <!--<th></th>-->
+    <!--</tr>-->
+  </table>
+  <br><br><p>Wanna <button class="button button2"><span>Share</span></button> your new recipe!</p>
+</article>
+<% } %>
+<% include footer.ejs %>
+</body>
+</html>

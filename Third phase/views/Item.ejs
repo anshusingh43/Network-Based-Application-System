@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Item</title>
+    <link rel="stylesheet" type="text/css" href="../assets/stylesheet/Item.css">
+</head>
+<body>
+
+<% include header.ejs %>
+<% include user-navigation.ejs %>
+<% include site-navigation.ejs %>
+
+<article class="des">
+
+    <table>
+        <tr>
+            <th  rowspan="3" style="height:1px; width:185px;">
+                <img src="<%= data.ImageURL %>" alt="dish" width="180" height="130">
+            </th>
+            <td><br><h4><%= data.Name %></h4></td>
+        </tr>
+        <tr>
+            <td><br><b><%= data.Catalog_Category %></b></td>
+        </tr>
+        <tr>
+            <!--<td><br><img src="<%= data.Rating %>" alt="ratings" width="90" height="45"></td>-->
+            <td><br><%= data.Rating %> <b>Star</b></td>
+        </tr>
+    </table>
+    <br><br><br>
+
+    <p class="paneer"> <%= data.Description %></p>
+    <br>
+    <br>
+
+    <form method="POST">
+        <input type="submit" formaction="/MyItems?action=save&item_code=<%=data.item_code%>" value="Save" class="button button1">
+        <!--<input type="submit" formaction="/categories" value="Back" class="button button1">
+        <input type="submit" formaction="/feedback" value="Rate It!" class="button button1">-->
+    </form>
+
+    <button type="button" onclick="location.href='/categories';">Back</button>
+    <button type="button" onclick="location.href='/feedback?item_code=<%= data.item_code %>';">Rate It!</button>
+
+</article>
+
+
+<% include footer.ejs %>
+
+</body>
+</html>
