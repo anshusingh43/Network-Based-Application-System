@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Category</title>
+  <link rel="stylesheet" type="text/css" href="../assets/stylesheet/Categories.css">
+</head>
+<body>
+
+  <% include header.ejs %>
+  <% include user-navigation.ejs %>
+  <% include site-navigation.ejs %>
+
+  <%var categoryList=[];
+	qs.forEach(function(item){
+		if(!categoryList.includes(item.Catalog_Category))
+		{
+			categoryList.push(item.Catalog_Category);
+		}
+	});
+	while(categoryList.length!=0)
+	{
+	var currentCategory=categoryList[0];
+
+	categoryList.splice(0,1);
+	%>
+    <h3 style="padding-left:30%"><%=currentCategory%></h3>
+    <%qs.forEach(function(item){
+                    if(item.Catalog_Category === currentCategory){%>
+    <a style="padding-left:30%" href="/itemID?item_code=<%=item.item_code%>"><%=item.Name%></a><br>
+    <%}%>
+    <%})}%>
+  <% include footer.ejs %>
+
+</body>
+</html>
