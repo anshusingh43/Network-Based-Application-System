@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>index</title>
+    <link rel="stylesheet" type="text/css" href="../assets/stylesheet/index.css">
+</head>
+<body>
+<% include header.ejs %>
+<% include user-navigation.ejs %>
+<% include site-navigation.ejs %>
+
+<article class="des">
+    <!-- <h6></h6> -->
+    <!--<h4>Sign In</h4>-->
+    <br><br>
+    <div id="userFormDiv">
+
+        <% console.log(sessionData);
+        if(sessionData === undefined) {%>
+            <div id="userFormDiv">
+                <form id="user-form" action="/SignIn" method="POST">
+
+                    <p>
+                        <label>User ID: </label> <input type="text" name="userId">
+                    </p>
+
+                    <p>
+                        <label>Password: </label> <input type="password" name="password">
+                    </p>
+
+                    <div>
+                        <button id="signIn" class="button">Sign In</button>
+                    </div>
+                </form>
+            </div>
+        <% } else { %>
+
+
+            <% if(userData === "Invalid or No User/password provided" || userData === "") {%>
+                <div id="userFormDiv">
+                    <form id="user-form" action="/SignIn" method="POST">
+                        <!--<form id="user-form"> -->
+                        <p>
+                            <label>User ID: </label> <input type="text" name="userId">
+                        </p>
+
+                        <p>
+                            <label>Password: </label> <input type="password" name="password">
+                        </p>
+
+                        <div>
+                            <button id="signIn" class="button">Sign In</button>
+                        </div>
+                    </form>
+                </div>
+            <% } %>
+
+            <div><h2><% if(userData != "") {
+                    if(userData != "Invalid or No User/password provided") { %> Welcome <% }%>
+                    <%= userData %>!</h2>
+
+            </div>
+            <% } %>
+        <% } %>
+
+
+
+    </div>
+</article>
+<% include footer.ejs %>
+
+</body>
+</html>

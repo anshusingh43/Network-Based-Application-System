@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MyItems</title>
+  <link rel="stylesheet" type="text/css" href="../assets/stylesheet/MyItems.css">
+</head>
+<body>
+<% include header.ejs %>
+<% include user-navigation.ejs %>
+<% include site-navigation.ejs %>
+<div style="padding-left: 20%; padding-top: 2%">
+  <% if(MyItemList === undefined) { %>Please <b><a href = "/SignIn">Sign In </a></b>to see your recipes!<% } else { %></div>
+<article class="des">
+  <h4 style="text-align:center;"><b>SAVED ITEMS</b></h4>
+  <table>
+    <tr>
+      <th>Recipe</th>
+      <th>Categories</th>
+      <th>My Rating</th>
+      <th>Made It</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+
+    <% for(let i=0; i < MyItemList.length; i++) {%>
+      <tr>
+        <td><%= MyItemList[i].Name %></td>
+        <td><%= MyItemList[i].category %></td>
+        <td><%= MyItemList[i].rating %></td>
+
+        <td><% if(MyItemList[i].status === 'Yes'){%>
+            <input type="checkbox" checked name="made it 1" value="name">
+          <% }else {%>
+            <input type="checkbox" name="made it 1" value="name">
+          <% } %>
+        </td>
+
+        <td><a href="/feedback?action=update&page=myItem&item_code=<%= MyItemList[i].item_code %>"><button >Update</button></a></td>
+        <td><a href="/myItems?action=delete&item_code=<%= MyItemList[i].item_code %>"><button>Delete</button></a></td>
+        </td>
+      </tr>
+    <% } %>
+
+  </table>
+  <br><br><p>Wanna <button class="button button2"><span>Share</span></button> your new recipe!</p>
+</article>
+<% } %>
+<% include footer.ejs %>
+</body>
+</html>
